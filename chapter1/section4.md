@@ -50,11 +50,11 @@ Java HotSpot\(TM\) 64-Bit Server VM \(build 25.131-b11, mixed mode\)
 
 是java.library.path出了问题，
 
-
-
 解决方案是在文件hadoop-env.sh中增加：
 
 
 
-export HADOOP\_OPTS="-Djava.library.path=${HADOOP\_HOME}/lib/native"  
+export HADOOP\_COMMON\_LIB\_NATIVE\_DIR=${HADOOP\_PREFIX}/lib/native    
+
+export HADOOP\_OPTS="-Djava.library.path=$HADOOP\_PREFIX/lib" 
 

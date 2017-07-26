@@ -60,13 +60,17 @@ export HADOOP\_OPTS="-Djava.library.path=$HADOOP\_PREFIX/lib"
 
 查看具体的错误信息：
 
-Hadoop开启关闭调试信息  
-
-
+Hadoop开启关闭调试信息
 
 开启：export HADOOP\_ROOT\_LOGGER=DEBUG,console
 
 关闭：export HADOOP\_ROOT\_LOGGER=INFO,console
 
+$ hadoop fs -ls /
 
+17/07/26 20:32:07 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+Found 1 items
+
+drwxr-xr-x   - didi supergroup          0 2017-07-26 20:11 /user
 

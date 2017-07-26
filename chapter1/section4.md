@@ -34,9 +34,19 @@ du: \`.': No such file or directory
 
 这个问题基本上是由于在apache hadoop官网上下载的hadoopXXX.bin.tar.gz实在32位的机器上编译的
 
- cd lib/native/
+cd lib/native/
 
 $ file libhadoop.so.1.0.0
 
 libhadoop.so.1.0.0: ELF 64-bit LSB shared object, x86-64, version 1 \(SYSV\), dynamically linked, not stripped
+
+$   java -version
+
+java version "1.8.0\_131"
+
+Java\(TM\) SE Runtime Environment \(build 1.8.0\_131-b11\)
+
+Java HotSpot\(TM\) 64-Bit Server VM \(build 25.131-b11, mixed mode\)
+
+
 

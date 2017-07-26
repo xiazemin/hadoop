@@ -58,7 +58,15 @@ export HADOOP\_OPTS="-Djava.library.path=$HADOOP\_PREFIX/lib"
 
 1.执行：$ export HADOOP\_ROOT\_LOGGER=DEBUG,console
 
-
-
 查看具体的错误信息：
+
+Hadoop开启关闭调试信息  
+
+
+
+开启：export HADOOP\_ROOT\_LOGGER=DEBUG,console
+
+关闭：export HADOOP\_ROOT\_LOGGER=INFO,console
+
+
 

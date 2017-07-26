@@ -34,3 +34,9 @@ du: \`.': No such file or directory
 
 这个问题基本上是由于在apache hadoop官网上下载的hadoopXXX.bin.tar.gz实在32位的机器上编译的
 
+ cd lib/native/
+
+$ file libhadoop.so.1.0.0
+
+libhadoop.so.1.0.0: ELF 64-bit LSB shared object, x86-64, version 1 \(SYSV\), dynamically linked, not stripped
+

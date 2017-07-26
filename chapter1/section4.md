@@ -48,5 +48,13 @@ Java\(TM\) SE Runtime Environment \(build 1.8.0\_131-b11\)
 
 Java HotSpot\(TM\) 64-Bit Server VM \(build 25.131-b11, mixed mode\)
 
+是java.library.path出了问题，
 
+
+
+解决方案是在文件hadoop-env.sh中增加：
+
+
+
+export HADOOP\_OPTS="-Djava.library.path=${HADOOP\_HOME}/lib/native"  
 

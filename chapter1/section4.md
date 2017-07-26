@@ -74,3 +74,11 @@ Found 1 items
 
 drwxr-xr-x   - didi supergroup          0 2017-07-26 20:11 /user
 
+$ hadoop fs -rm -r /user
+
+17/07/26 20:34:17 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+17/07/26 20:34:18 INFO fs.TrashPolicyDefault: Namenode trash configuration: Deletion interval = 0 minutes, Emptier interval = 0 minutes.
+
+Deleted /user
+

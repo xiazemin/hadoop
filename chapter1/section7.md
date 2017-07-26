@@ -1,8 +1,6 @@
-# section7
+# hadoop应用开发流程
 
 RUNNING A HADOOP JOB
-
-
 
 Now that the VM is started, or you have installed Hadoop on your own system in pseudo-distributed mode, let us make sure that Hadoop is properly configured.
 
@@ -62,8 +60,6 @@ This task runs a simulation to estimate the value of pi based on sampling. The t
 
 ACCESSING THE VM VIA SSH
 
-
-
 Rather than directly use the terminal of the virtual machine, you can also log in "remotely" over ssh from the host environment. Using an ssh client like putty \(in Windows\), log in with username "hadoop-user" \(password hadoop\) to the IP address displayed in the virtual machine terminal when it starts up. You can now interact with this virtual machine as if it were another Linux machine on the network.
 
 This can only be done from the host machine. The VMware image is, by default, configured to use host-only networking; only the host machine can talk to the virtual machine over its network interface. The virtual machine does not appear on the actual external network. This is done for security purposes.
@@ -74,8 +70,6 @@ Important security note: In the VMware settings, you can reconfigure the virtual
 
 SHUTTING DOWN THE VM
 
-
-
 When you are done with the virtual machine, you can turn it off by logging in as hadoop-user and typing sudo poweroff. The virtual machine will shut itself down in an orderly fashion and the window it runs in will disappear.
 
 Getting Started With Eclipse
@@ -84,9 +78,7 @@ A powerful development environment for Java-based programming is Eclipse. Eclips
 
 DOWNLOADING AND INSTALLING
 
-
-
-Note: The most current release of Eclipse is called Ganymede. Our testing shows that Ganymede is currently incompatible with the Hadoop MapReduce plugin. The most recent version which worked properly with the Hadoop plugin is version 3.3.1, "Europa." To download Europa, do not visit the main Eclipse website; it can be found in the archive site http://archive.eclipse.org/eclipse/downloads/ as the "Archived Release \(3.3.1\)."
+Note: The most current release of Eclipse is called Ganymede. Our testing shows that Ganymede is currently incompatible with the Hadoop MapReduce plugin. The most recent version which worked properly with the Hadoop plugin is version 3.3.1, "Europa." To download Europa, do not visit the main Eclipse website; it can be found in the archive site [http://archive.eclipse.org/eclipse/downloads/](http://archive.eclipse.org/eclipse/downloads/) as the "Archived Release \(3.3.1\)."
 
 The Eclipse website has several versions available for download; choose either "Eclipse Classic" or "Eclipse IDE for Java Developers."
 
@@ -98,33 +90,23 @@ After you have decompressed Eclipse into a directory, you can run it straight fr
 
 INSTALLING THE HADOOP MAPREDUCE PLUGIN
 
-
-
 Hadoop comes with a plugin for Eclipse that makes developing MapReduce programs easier. In the hadoop-0.18.0/contrib/eclipse-plugin directory on this CD, you will find a file named hadoop-0.18.0-eclipse-plugin.jar. Copy this into the plugins/ subdirectory of wherever you unzipped Eclipse.
 
 MAKING A COPY OF HADOOP
 
-
-
 While we will be running MapReduce programs on the virtual machine, we will be compiling them on the host machine. The host therefore needs a copy of the Hadoop jars to compile your code against. Copy the /hadoop-0.18.0 directory from the CD into a location on your local drive, and remember where this is. You do not need to configure this copy of Hadoop in any way.
 
-
-
 RUNNING ECLIPSE
-
-
 
 Navigate into the Eclipse directory and run eclipse.exe to start the IDE. Eclipse stores all of your source projects and their related settings in a directory called a workspace.
 
 Upon starting Eclipse, it will prompt you for a directory to act as the workspace. Choose a directory name that makes sense to you and click OK.
 
- eclipse-workspace 
+eclipse-workspace
 
 Figure 3.3: When you first start Eclipse, you must choose a directory to act as your workspace.
 
 CONFIGURING THE MAPREDUCE PLUGIN
-
-
 
 In this section, we will walk through the process of configuring Eclipse to switch to the MapReduce perspective and connect to the Hadoop virtual machine.
 
@@ -134,15 +116,13 @@ Step 2: Start the virtual machine. Double-click on the image.vmx file in the vir
 
 Step 3: Switch to the MapReduce perspective. In the upper-right corner of the workbench, click the "Open Perspective" button, as shown in Figure 3.4:
 
- perspective 
+perspective
 
 Figure 3.4: Changing the Perspective
 
 Select "Other," followed by "Map/Reduce" in the window that opens up. At first, nothing may appear to change. In the menu, choose Window \* Show View \* Other. Under "MapReduce Tools," select "Map/Reduce Locations." This should make a new panel visible at the bottom of the screen, next to Problems and Tasks.
 
 Step 4: Add the Server. In the Map/Reduce Locations panel, click on the elephant logo in the upper-right corner to add a new server to Eclipse.
-
-  
 
 Figure 3.5: Adding a New Server
 
@@ -166,8 +146,6 @@ Next, scroll further down to mapred.system.dir. Erase the current value and set 
 
 When you are done, click "Finish." Your server will now appear in the Map/Reduce Locations panel. If you look in the Project Explorer \(upper-left corner of Eclipse\), you will see that the MapReduce plugin has added the ability to browse HDFS. Click the \[+\] buttons to expand the directory tree to see any files already there. If you inserted files into HDFS yourself, they will be visible in this tree.
 
-  
-
 Figure 3.6: Files Visible in the HDFS Viewer
 
 Now that your system is configured, the following sections will introduce you to the basic features and verify that they work correctly.
@@ -177,8 +155,6 @@ Interacting With HDFS
 The VMware image will expose a single-node HDFS instance for your use in MapReduce applications. If you are logged in to the virtual machine, you can interact with HDFS using the command-line tools described in Module 2. You can also manipulate HDFS through the MapReduce plugin.
 
 USING THE COMMAND LINE
-
-
 
 An interesting MapReduce task will require some external data to process: log files, web crawl results, etc. Before you can begin processing with MapReduce, data must be loaded into its distributed file system. In Module 2, you learned how to copy files from the local file system into HDFS. But this will copy files from the local file system of the VM into HDFS - not from the file system of your host computer.
 
@@ -198,13 +174,13 @@ scp will allow you to copy files from one machine to another over the network. T
 
 So supposing you have a file named foo.txt, and you would like to copy this into the virtual machine which has IP address 192.168.190.128, you can perform this operation with the command:
 
-  $ scp foo.txt hadoop-user@192.168.190.128:foo.txt
+$ scp foo.txt hadoop-user@192.168.190.128:foo.txt
 
 If you are using the pscp program, substitute pscp instead of scp above. A copy of the "regular" scp can be run under cygwin by downloading the OpenSSH package. pscp is a utility by the makers of putty and does not require cygwin.
 
 Note that since we did not specify a destination directory, it will go in /home/hadoop-user by default. To change the target directory, specify it after the hostname \(e.g., hadoop-user@192.168.128.190:/some/dest/path/foo.txt.\) You can also omit the destination filename, if you want it to be identical to the source filename. However, if you omit both the target directory and filename, you must not forget the colon \(":"\) that follows the target hostname. Otherwise it will make a local copy of the file, with the name 192.168.190.128. An equivalent correct command to copy foo.txt to /home/hadoop-user on the remote machine is:
 
-  $ scp foo.txt hadoop-user@192.168.190.128:
+$ scp foo.txt hadoop-user@192.168.190.128:
 
 Windows users may be more inclined to use a GUI tool to perform scp commands. The free WinSCP program provides an FTP-like GUI interface over scp.
 
@@ -212,21 +188,19 @@ After you have copied files into the local disk of the virtual machine, you can 
 
 hadoop-user@vm-instance:hadoop$ bin/hadoop dfs -put ~/foo.txt \
 
-  /user/hadoop-user/input/foo.txt
+/user/hadoop-user/input/foo.txt
 
 A second option available to upload individual files to HDFS from the host machine is to echo the file contents into a put command running via ssh. e.g., assuming you have the cat program \(which comes with Linux or cygwin\) to echo the contents of a file to the terminal output, you can connect its output to the input of a put command running over ssh like so:
 
 you@host-machine$ cat somefile \| ssh hadoop-user@vm-ip-addr \
 
-  "hadoop/bin/hadoop fs -put - destinationfile
+"hadoop/bin/hadoop fs -put - destinationfile
 
 The - as an argument to the put command instructs the system to use stdin as its input file. This will copy somefile on the host machine to destinationfile in HDFS on the virtual machine.
 
 Finally, if you are running either Linux or cygwin, you can copy the /hadoop-0.18.0 directory on the CD to your local instance. You can then configure hadoop-site.xml to use the virtual machine as the default distributed file system \(by setting the fs.default.name parameter\). If you then run bin/hadoop fs -put ... commands on this machine \(or any other hadoop commands, for that matter\), they will interact with HDFS as served by the virtual machine. See the Hadoop getting started for instructions on configuring a Hadoop installation, or Module 7 for a more thorough treatment.
 
 USING THE MAPREDUCE PLUGIN FOR ECLIPSE
-
-
 
 An easier way to manipulate files in HDFS may be through the Eclipse plugin. In the DFS location viewer, right-click on any folder to see a list of actions available. You can create new subdirectories, upload individual files or whole subdirectories, or download files and directories to the local disk.
 
@@ -244,8 +218,6 @@ If you have not already done so, start the virtual machine and Eclipse, and swit
 
 CREATING THE PROJECT
 
-
-
 In the menu, click File \* New \* Project. Select "Map/Reduce Project" from the list and click Next.
 
 You now need to select a project name. Any name will do, e.g., "WordCount". You will also need to specify the Hadoop Library Installation Path. This is the path where you made a copy of the /hadoop-0.18.0 folder on the CD.  Since we have not yet configured this part of Eclipse, do so now by clicking "Configure Hadoop install directory..." and choosing the path where you copied Hadoop to. There should be a file named hadoop-0.18.0-core.jar in this directory. Creating a MapReduce Project instead of a generic Java project automatically adds the prerequisite jar files to the build path. If you create a regular Java project, you must add the Hadoop jar \(and its dependencies\) to the build path manually.
@@ -253,8 +225,6 @@ You now need to select a project name. Any name will do, e.g., "WordCount". You 
 When you have completed these steps, click Finish.
 
 CREATING THE SOURCE FILES
-
-
 
 Our program needs three classes to run: a Mapper, a Reducer, and a Driver. The Driver tells Hadoop how to run the MapReduce process. The Mapper and Reducer operate on your data.
 
@@ -267,8 +237,6 @@ WordCountMapper.java:
 import java.io.IOException;
 
 import java.util.StringTokenizer;
-
-
 
 import org.apache.hadoop.io.IntWritable;
 
@@ -288,39 +256,37 @@ import org.apache.hadoop.mapred.OutputCollector;
 
 import org.apache.hadoop.mapred.Reporter;
 
-
-
 public class WordCountMapper extends MapReduceBase
 
-    implements Mapper&lt;LongWritable, Text, Text, IntWritable&gt; {
+```
+implements Mapper&lt;LongWritable, Text, Text, IntWritable&gt; {
+```
+
+private final IntWritable one = new IntWritable\(1\);
+
+private Text word = new Text\(\);
+
+public void map\(WritableComparable key, Writable value,
+
+```
+  OutputCollector output, Reporter reporter\) throws IOException {
 
 
 
-  private final IntWritable one = new IntWritable\(1\);
+String line = value.toString\(\);
 
-  private Text word = new Text\(\);
+StringTokenizer itr = new StringTokenizer\(line.toLowerCase\(\)\);
 
+while\(itr.hasMoreTokens\(\)\) {
 
+  word.set\(itr.nextToken\(\)\);
 
-  public void map\(WritableComparable key, Writable value,
+  output.collect\(word, one\);
 
-      OutputCollector output, Reporter reporter\) throws IOException {
+}
+```
 
-
-
-    String line = value.toString\(\);
-
-    StringTokenizer itr = new StringTokenizer\(line.toLowerCase\(\)\);
-
-    while\(itr.hasMoreTokens\(\)\) {
-
-      word.set\(itr.nextToken\(\)\);
-
-      output.collect\(word, one\);
-
-    }
-
-  }
+}
 
 }
 
@@ -329,8 +295,6 @@ WordCountReducer.java:
 import java.io.IOException;
 
 import java.util.Iterator;
-
-
 
 import org.apache.hadoop.io.IntWritable;
 
@@ -346,35 +310,35 @@ import org.apache.hadoop.mapred.Reducer;
 
 import org.apache.hadoop.mapred.Reporter;
 
-
-
 public class WordCountReducer extends MapReduceBase
 
-    implements Reducer&lt;Text, IntWritable, Text, IntWritable&gt; {
+```
+implements Reducer&lt;Text, IntWritable, Text, IntWritable&gt; {
+```
+
+public void reduce\(Text key, Iterator values,
+
+```
+  OutputCollector output, Reporter reporter\) throws IOException {
 
 
 
-  public void reduce\(Text key, Iterator values,
+int sum = 0;
 
-      OutputCollector output, Reporter reporter\) throws IOException {
+while \(values.hasNext\(\)\) {
 
+  IntWritable value = \(IntWritable\) values.next\(\);
 
+  sum += value.get\(\); // process value
 
-    int sum = 0;
-
-    while \(values.hasNext\(\)\) {
-
-      IntWritable value = \(IntWritable\) values.next\(\);
-
-      sum += value.get\(\); // process value
-
-    }
+}
 
 
 
-    output.collect\(key, new IntWritable\(sum\)\);
+output.collect\(key, new IntWritable\(sum\)\);
+```
 
-  }
+}
 
 }
 
@@ -394,71 +358,67 @@ import org.apache.hadoop.mapred.JobClient;
 
 import org.apache.hadoop.mapred.JobConf;
 
-
-
 public class WordCount {
 
+public static void main\(String\[\] args\) {
 
+```
+JobClient client = new JobClient\(\);
 
-  public static void main\(String\[\] args\) {
-
-    JobClient client = new JobClient\(\);
-
-    JobConf conf = new JobConf\(WordCount.class\);
-
-
-
-    // specify output types
-
-    conf.setOutputKeyClass\(Text.class\);
-
-    conf.setOutputValueClass\(IntWritable.class\);
+JobConf conf = new JobConf\(WordCount.class\);
 
 
 
-    // specify input and output dirs
+// specify output types
 
-    FileInputPath.addInputPath\(conf, new Path\("input"\)\);
+conf.setOutputKeyClass\(Text.class\);
 
-    FileOutputPath.addOutputPath\(conf, new Path\("output"\)\);
-
-
-
-    // specify a mapper
-
-    conf.setMapperClass\(WordCountMapper.class\);
+conf.setOutputValueClass\(IntWritable.class\);
 
 
 
-    // specify a reducer
+// specify input and output dirs
 
-    conf.setReducerClass\(WordCountReducer.class\);
+FileInputPath.addInputPath\(conf, new Path\("input"\)\);
 
-    conf.setCombinerClass\(WordCountReducer.class\);
+FileOutputPath.addOutputPath\(conf, new Path\("output"\)\);
 
 
 
-    client.setConf\(conf\);
+// specify a mapper
 
-    try {
+conf.setMapperClass\(WordCountMapper.class\);
 
-      JobClient.runJob\(conf\);
 
-    } catch \(Exception e\) {
 
-      e.printStackTrace\(\);
+// specify a reducer
 
-    }
+conf.setReducerClass\(WordCountReducer.class\);
 
-  }
+conf.setCombinerClass\(WordCountReducer.class\);
+
+
+
+client.setConf\(conf\);
+
+try {
+
+  JobClient.runJob\(conf\);
+
+} catch \(Exception e\) {
+
+  e.printStackTrace\(\);
+
+}
+```
+
+}
 
 }
 
 For now, don't worry about how these functions work; we will introduce how to write MapReduce programs in Module 4. We currently just want to establish that we can run jobs on the virtual machine.
 
 LAUNCHING THE JOB
-
-
 
 After the code has been entered, it is time to run it. You have already created a directory named input below /user/hadoop-user in HDFS. This will serve as the input files to this process. In the Project Explorer, right-click on the driver class, WordCount.java. In the pop-up menu, select Run As \* Run On Hadoop. A window will appear asking you to select a Hadoop location to run on. Select the VMware server that you configured earlier, and click Finish.
 

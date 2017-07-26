@@ -1,5 +1,7 @@
 # 单节点实践
 
+https://archive.apache.org/dist/hadoop/common/hadoop-2.6.4/
+
 $ vi etc/hadoop/core-site.xml
 
 配置core-site.xml

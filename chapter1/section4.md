@@ -82,3 +82,9 @@ $ hadoop fs -rm -r /user
 
 Deleted /user
 
+$ hadoop fs -mkdir /user
+
+17/07/26 20:35:04 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+
+

@@ -12,3 +12,5 @@
 
 进入eclipse,首先要配置就是library pth，在Preferences\(可以通过quick access找到\) 中可以看到有一个Hadoop Map/Reduce栏，将自己的hadoop安装路径写下,比如我的是/usr/local/Cellar/hadoop/2.7.2/libexec。
 
+现在新建工程，可以看到有一个”Map/Reduce Project”可供选择，没什么好说的，按照创建一般工程的方法创建下去，我在这里创建了一个wordcount工程，里面有一个类WordCount,然后把MapReduce Tutorial中的实例代码复制过去
+

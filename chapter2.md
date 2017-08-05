@@ -14,3 +14,5 @@
 
 现在新建工程，可以看到有一个”Map/Reduce Project”可供选择，没什么好说的，按照创建一般工程的方法创建下去，我在这里创建了一个wordcount工程，里面有一个类WordCount,然后把MapReduce Tutorial中的实例代码复制过去
 
+以上，各种import包没有报错，那么ok，至少说明可以编译通过了。
+

@@ -44,8 +44,6 @@ $ vi etc/hadoop/hdfs-site.xml
 
 &lt;/property&gt;
 
-
-
 $ sbin/start-all.sh
 
 This script is Deprecated. Instead use start-dfs.sh and start-yarn.sh
@@ -77,4 +75,6 @@ starting resourcemanager, logging to /Users/didi/hadoop/hadoop/logs/yarn-didi-re
 Password:
 
 localhost: starting nodemanager, logging to /Users/didi/hadoop/hadoop/logs/yarn-didi-nodemanager-bogon.out
+
+
 

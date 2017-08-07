@@ -4,7 +4,5 @@
 
 Exception in thread "main" org.apache.hadoop.mapreduce.lib.input.InvalidInputException: Input path does not exist: file:/Users/didi/java/WordCount/input
 
-
-
-
+$     hdfs dfs -mkdir java/WordCount/input
 

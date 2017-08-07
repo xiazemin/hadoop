@@ -23,45 +23,71 @@ build path/configbuildpath  把share/hadoop/yarn 目录下的jar包引入即可
 
 2017-08-07 11:26:16,573 INFO  \[main\] mapreduce.Job \(Job.java:monitorAndPrintJob\(1392\)\) - Counters: 24
 
-	File System Counters
+```
+File System Counters
 
-		FILE: Number of bytes read=22
+    FILE: Number of bytes read=22
 
-		FILE: Number of bytes written=251569
+    FILE: Number of bytes written=251569
 
-		FILE: Number of read operations=0
+    FILE: Number of read operations=0
 
-		FILE: Number of large read operations=0
+    FILE: Number of large read operations=0
 
-		FILE: Number of write operations=0
+    FILE: Number of write operations=0
 
-	Map-Reduce Framework
+Map-Reduce Framework
 
-		Combine input records=0
+    Combine input records=0
 
-		Combine output records=0
+    Combine output records=0
 
-		Reduce input groups=0
+    Reduce input groups=0
 
-		Reduce shuffle bytes=0
+    Reduce shuffle bytes=0
 
-		Reduce input records=0
+    Reduce input records=0
 
-		Reduce output records=0
+    Reduce output records=0
 
-		Spilled Records=0
+    Spilled Records=0
 
-		Shuffled Maps =0
+    Shuffled Maps =0
 
-		Failed Shuffles=0
+    Failed Shuffles=0
 
-		Merged Map outputs=0
+    Merged Map outputs=0
 
-		GC time elapsed \(ms\)=0
+    GC time elapsed \(ms\)=0
 
-		Total committed heap usage \(bytes\)=163053568
+    Total committed heap usage \(bytes\)=163053568
 
-	Shuffle Errors
+Shuffle Errors
+
+    BAD\_ID=0
+
+    CONNECTION=0
+
+    IO\_ERROR=0
+
+    WRONG\_LENGTH=0
+
+    WRONG\_MAP=0
+
+    WRONG\_REDUCE=0
+
+File Output Format Counters 
+
+    Bytes Written=8
+```
+
+$ cd java/WordCount/input
+
+$ echo 'hello world' &gt; input1.txt
+
+$ echo 'hello hadoop' &gt; input2.txt
+
+Shuffle Errors
 
 		BAD\_ID=0
 
@@ -75,7 +101,25 @@ build path/configbuildpath  把share/hadoop/yarn 目录下的jar包引入即可
 
 		WRONG\_REDUCE=0
 
+	File Input Format Counters 
+
+		Bytes Read=25
+
 	File Output Format Counters 
 
-		Bytes Written=8
+		Bytes Written=37
+
+$ cd output/
+
+$ ls
+
+\_SUCCESS	part-r-00000
+
+$ cat part-r-00000
+
+hadoop	1
+
+hello	2
+
+world	1
 

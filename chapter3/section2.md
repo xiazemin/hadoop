@@ -24,5 +24,25 @@ $ jps
 
 17103 ResourceManager
 
+$ vi etc/hadoop/hdfs-site.xml
 
+增加
+
+
+
+&lt;property&gt;
+
+&lt;name&gt;dfs.namenode.name.dir &lt;/name&gt;
+
+&lt;value&gt;file:///data/hdfs/name&lt;/value&gt;
+
+&lt;/property&gt;
+
+&lt;property&gt;
+
+&lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;
+
+&lt;value&gt;file:///data/hdfs/data&lt;/value&gt;
+
+&lt;/property&gt;
 

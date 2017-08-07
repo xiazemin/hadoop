@@ -15,5 +15,7 @@ at java.lang.ClassLoader.defineClass1\(Native Method\)
 解决：没有把yarn下的包以及yarn 下的lib目录下的包导入
 ```
 
+build path/configbuildpath  把share/hadoop/yarn 目录下的jar包引入即可
+
 
 

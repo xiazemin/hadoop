@@ -28,8 +28,6 @@ $ vi etc/hadoop/hdfs-site.xml
 
 增加
 
-
-
 &lt;property&gt;
 
 &lt;name&gt;dfs.namenode.name.dir &lt;/name&gt;
@@ -45,4 +43,38 @@ $ vi etc/hadoop/hdfs-site.xml
 &lt;value&gt;file:///data/hdfs/data&lt;/value&gt;
 
 &lt;/property&gt;
+
+
+
+$ sbin/start-all.sh
+
+This script is Deprecated. Instead use start-dfs.sh and start-yarn.sh
+
+17/08/07 21:37:31 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+Starting namenodes on \[localhost\]
+
+Password:
+
+localhost: starting namenode, logging to /Users/didi/hadoop/hadoop/logs/hadoop-didi-namenode-bogon.out
+
+Password:
+
+localhost: starting datanode, logging to /Users/didi/hadoop/hadoop/logs/hadoop-didi-datanode-bogon.out
+
+Starting secondary namenodes \[0.0.0.0\]
+
+Password:
+
+0.0.0.0: starting secondarynamenode, logging to /Users/didi/hadoop/hadoop/logs/hadoop-didi-secondarynamenode-bogon.out
+
+17/08/07 21:37:55 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+starting yarn daemons
+
+starting resourcemanager, logging to /Users/didi/hadoop/hadoop/logs/yarn-didi-resourcemanager-bogon.out
+
+Password:
+
+localhost: starting nodemanager, logging to /Users/didi/hadoop/hadoop/logs/yarn-didi-nodemanager-bogon.out
 

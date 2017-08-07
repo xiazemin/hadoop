@@ -8,3 +8,9 @@ $     hdfs dfs -mkdir java/WordCount/input  x
 
 $mkdir /Users/didi/java/WordCount/input √
 
+Exception in thread "main" java.lang.NoClassDefFoundError: org/apache/hadoop/yarn/util/Apps
+
+	at java.lang.ClassLoader.defineClass1\(Native Method\)
+
+	
+

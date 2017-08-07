@@ -10,7 +10,10 @@ $mkdir /Users/didi/java/WordCount/input √
 
 Exception in thread "main" java.lang.NoClassDefFoundError: org/apache/hadoop/yarn/util/Apps
 
-	at java.lang.ClassLoader.defineClass1\(Native Method\)
+```
+at java.lang.ClassLoader.defineClass1\(Native Method\)
+解决：没有把yarn下的包以及yarn 下的lib目录下的包导入
+```
 
-	
+
 

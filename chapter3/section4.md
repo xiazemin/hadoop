@@ -34,3 +34,19 @@ $   hadoop jar share/hadoop/tools/lib/hadoop-streaming-2.6.4.jar -input /input/i
 
 17/08/08 10:25:50 INFO mapreduce.Job: Counters: 35
 
+$ hdfs dfs -lsr /output2/
+
+lsr: DEPRECATED: Please use 'ls -R' instead.
+
+17/08/08 10:27:24 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+-rw-r--r--   1 didi supergroup          0 2017-08-08 10:25 /output2/\_SUCCESS
+
+-rw-r--r--   1 didi supergroup         26 2017-08-08 10:25 /output2/part-00000
+
+$ hdfs dfs -cat  /output2/part-00000
+
+17/08/08 10:27:40 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+       1       2      13
+

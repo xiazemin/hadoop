@@ -26,7 +26,51 @@ $ hadoop namenode -format 仍然无法解决
 
 &lt;/property&gt;
 
+$ sbin/stop-all.sh
 
+$ jps
+
+19525 SecondaryNameNode
+
+25205 NodeManager
+
+24983 DataNode
+
+2362
+
+25243 Jps
+
+19628 ResourceManager
+
+637 Main
+
+namenode没有启动
+
+$ hadoop namenode -format
+
+$ sbin/start-all.sh
+
+$ jps
+
+26016 ResourceManager
+
+26096 NodeManager
+
+25816 DataNode
+
+25912 SecondaryNameNode
+
+2362
+
+26154 Jps
+
+637 Main
+
+25742 NameNode
+
+bogon:hadoop didi$ vi etc/hadoop/hdfs-site.xml
+
+成功
 
 
 

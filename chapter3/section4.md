@@ -48,5 +48,9 @@ $ hdfs dfs -cat  /output2/part-00000
 
 17/08/08 10:27:40 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 
-       1       2      13
+```
+   1       2      13
+```
+
+
 

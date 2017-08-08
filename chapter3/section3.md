@@ -72,5 +72,23 @@ bogon:hadoop didi$ vi etc/hadoop/hdfs-site.xml
 
 成功
 
+$  hdfs dfs -mkdir /input
 
+$ hdfs dfs -lsr /
+
+drwxr-xr-x   - didi supergroup          0 2017-08-08 10:14 /input
+
+$ hdfs dfs -put /Users/didi/java/WordCount/input/\*.txt  /input
+
+$ hdfs dfs -lsr /
+
+lsr: DEPRECATED: Please use 'ls -R' instead.
+
+17/08/08 10:16:15 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+drwxr-xr-x   - didi supergroup          0 2017-08-08 10:16 /input
+
+-rw-r--r--   1 didi supergroup         12 2017-08-08 10:16 /input/input1.txt
+
+-rw-r--r--   1 didi supergroup         13 2017-08-08 10:16 /input/input2.txt
 

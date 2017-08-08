@@ -32,17 +32,19 @@ $ hadoop jar share/hadoop/tools/lib/hadoop-streaming-2.6.4.jar -input input -out
 
 $HADOOP\_HOME/bin/hadoop  jar $HADOOP\_HOME/hadoop-streaming.jar \
 
-    -input myInputDirs \
+```
+-input myInputDirs \
 
-    -output myOutputDir \
+-output myOutputDir \
 
-    -mapper myPythonScript.py \
+-mapper myPythonScript.py \
 
-    -reducer /bin/wc \
+-reducer /bin/wc \
 
-    -file myPythonScript.py \
+-file myPythonScript.py \
 
-    -file myDictionary.txt
+-file myDictionary.txt
+```
 
 
 
